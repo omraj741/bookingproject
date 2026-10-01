@@ -1,5 +1,6 @@
 import './App.css'
 import { Navigate, Route, Routes } from 'react-router-dom'
+import { SpeedInsights } from '@vercel/speed-insights/react'
 import Navbar from './component/Navbar'
 import Sidebar from './component/Sidebar'
 import Dashboard from './component/Dashboard'
@@ -46,6 +47,7 @@ function App() {
           </Routes>
         </main>
       </div>
+      <SpeedInsights />
     </div>
   );
 }
