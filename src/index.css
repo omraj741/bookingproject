@@ -1,0 +1,28 @@
+:root {
+  --bg: #f7f7f7;
+  --surface: #ffffff;
+  --text: #111111;
+  --line: #1e1e1e;
+  font-family: 'Cascadia Code', Consolas, monospace;
+  font-size: 16px;
+  line-height: 1.45;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--text);
+  background: var(--bg);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100svh;
+  background: var(--bg);
+  color: var(--text);
+}
+
+#root {
+  min-height: 100svh;
+  background: var(--bg);
+}

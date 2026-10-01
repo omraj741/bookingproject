@@ -1,0 +1,23 @@
+.dashboard-content {
+  background: #ffffff;
+  color: #111111;
+}
+
+.dashboard-content .stats-grid {
+  background: transparent;
+}
+
+.dashboard-content .stat-card {
+  background: #ffffff;
+  border: 1px solid #111111;
+  color: #111111;
+}
+
+.dashboard-content .recent-bookings {
+  background: #ffffff;
+}
+
+.dashboard-content .booking-table th,
+.dashboard-content .booking-table td {
+  color: #111111;
+}

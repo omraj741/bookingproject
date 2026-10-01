@@ -1,0 +1,22 @@
+.sidebar {
+  background: #000000;
+  border-right: 1px solid #ffffff;
+}
+
+.sidebar nav {
+  display: grid;
+  gap: 8px;
+}
+
+.sidebar a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 8px 10px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.sidebar a:hover,
+.sidebar a[aria-current='page'] {
+  background: #ffffff;
+  color: #000000;
+}

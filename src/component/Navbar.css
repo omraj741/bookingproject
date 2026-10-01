@@ -1,0 +1,17 @@
+.topbar {
+  background: #000000;
+  color: #ffffff;
+  border-bottom: 1px solid #ffffff;
+}
+
+.brand,
+.icon-button,
+.profile-button {
+  color: #ffffff;
+}
+
+.icon-button,
+.profile-button {
+  background: transparent;
+  border: none;
+}
