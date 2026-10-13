@@ -5,7 +5,10 @@ import express from 'express'
 import mongoose from 'mongoose'
 import cors from 'cors'
 
-dotenv.config({ path: fileURLToPath(new URL('./.env.local', import.meta.url)) })
+dotenv.config()
+if (!process.env.MONGODB_URI) {
+  dotenv.config({ path: fileURLToPath(new URL('./.env.local', import.meta.url)) })
+}
 
 const dnsServers = process.env.MONGODB_DNS_SERVERS
   ?.split(',')
@@ -15,7 +18,22 @@ const dnsServers = process.env.MONGODB_DNS_SERVERS
 if (dnsServers?.length) dns.setServers(dnsServers)
 
 const app = express()
-app.use(cors()) // Restrict this to your frontend URL in production.
+const allowedOrigins = new Set([
+  'http://localhost:5173',
+  ...(process.env.FRONTEND_URL ?? '').split(',').map((origin) => origin.trim()).filter(Boolean),
+])
+
+app.use(cors({
+  origin(origin, callback) {
+    if (!origin || allowedOrigins.has(origin)) {
+      return callback(null, true)
+    }
+
+    return callback(new Error('Origin is not allowed by CORS.'))
+  },
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
+  credentials: true,
+}))
 app.use(express.json())
 
 const bookingSchema = new mongoose.Schema({
@@ -164,11 +182,16 @@ app.delete('/api/bookings/:id', async (req, res) => {
 
 const startServer = async () => {
   if (!process.env.MONGODB_URI) {
-    throw new Error('MONGODB_URI is missing. Add it to the project .env file.')
+    throw new Error('MONGODB_URI is missing. Configure it in the environment or local .env file.')
   }
 
   await mongoose.connect(process.env.MONGODB_URI)
-  app.listen(5000, () => console.log('API running on http://localhost:5000'))
+
+  const port = process.env.PORT || 5000
+  app.listen(port, '0.0.0.0', () => console.log(`API listening on port ${port}`))
 }
 
-startServer().catch(console.error)
+startServer().catch((error) => {
+  console.error('Could not start API server:', error)
+  process.exit(1)
+})

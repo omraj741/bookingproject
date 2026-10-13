@@ -2,9 +2,9 @@
   font-family: 'Inter', sans-serif;
 }
 .app-shell {
-  width: min(1126px, calc(100% - 8px));
-  min-height: calc(100svh - 30px);
-  margin: 15px auto;
+  width: min(2000px, calc(100% - 32px));
+  min-height: calc(100svh - 16px);
+  margin: 8px auto;
   border: 1px solid var(--line);
   background: var(--surface);
   display: flex;
@@ -13,7 +13,7 @@
 }
 
 .topbar {
-  min-height: 60px;
+  min-height: 64px;
   padding: 0 16px;
   border-bottom: 1px solid var(--line);
   background: var(--surface);
@@ -26,7 +26,7 @@
   margin: 0;
   color: var(--text);
   font: inherit;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 500;
 }
 
@@ -58,12 +58,12 @@
 
 .app-body {
   display: grid;
-  grid-template-columns: 150px minmax(0, 1fr);
+  grid-template-columns: 180px minmax(0, 1fr);
   flex: 1;
 }
 
 .sidebar {
-  padding: 42px 15px;
+  padding: 32px 16px;
   border-right: 1px solid var(--line);
 }
 
@@ -73,7 +73,7 @@
 }
 
 .sidebar a {
-  min-height: 29px;
+  min-height: 36px;
   display: flex;
   align-items: center;
   color: var(--text);
@@ -89,7 +89,7 @@
 
 .main-content {
   min-width: 0;
-  padding: 46px 25px 48px;
+  padding: 36px 36px 40px;
   background: var(--surface);
 }
 
@@ -98,12 +98,12 @@
   margin: 0;
   color: var(--text);
   font: inherit;
-  font-size: 16px;
+  font-size: 19px;
   font-weight: 500;
 }
 
 .page-title {
-  margin-bottom: 46px;
+  margin-bottom: 28px;
 }
 
 .page-message {
@@ -134,7 +134,7 @@
   margin: 0;
   color: var(--text);
   font: inherit;
-  font-size: 16px;
+  font-size: 17px;
 }
 
 .stat-card h3 {
@@ -143,25 +143,25 @@
 }
 
 .recent-bookings {
-  margin-top: 48px;
+  margin-top: 36px;
 }
 
 .section-title {
-  margin: 0 0 28px;
+  margin: 0 0 18px;
 }
 
 .booking-table {
   border-collapse: collapse;
-  min-width: 245px;
+  width: min(100%, 800px);
   text-align: left;
 }
 
 .booking-table th,
 .booking-table td {
-  padding: 0 16px 6px 0;
+  padding: 8px 24px 8px 0;
   color: var(--text);
   font: inherit;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 400;
 }
 
@@ -170,10 +170,10 @@
 }
 
 .booking-form {
-  width: min(100%, 460px);
+  width: min(100%, 640px);
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px 16px;
+  gap: 14px 20px;
 }
 
 .form-field {
@@ -185,13 +185,13 @@
 
 .form-field label {
   color: var(--text);
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .form-field input,
 .form-field select {
   width: 100%;
-  min-height: 38px;
+  min-height: 44px;
   box-sizing: border-box;
   padding: 7px 9px;
   border: 1px solid var(--line);
@@ -199,7 +199,7 @@
   color: var(--text);
   background: #ffffff;
   font: inherit;
-  font-size: 14px;
+  font-size: 16px;
   color-scheme: light;
 }
 
@@ -224,7 +224,7 @@
 }
 
 .form-submit {
-  min-height: 38px;
+  min-height: 44px;
   justify-self: start;
   padding: 7px 12px;
   border: 1px solid var(--line);
@@ -232,7 +232,7 @@
   color: var(--text);
   background: #ffffff;
   font: inherit;
-  font-size: 14px;
+  font-size: 16px;
   cursor: pointer;
 }
 
@@ -254,7 +254,7 @@
 }
 
 .bookings-list-title {
-  margin-top: 40px;
+  margin-top: 28px;
 }
 
 .status {
@@ -263,8 +263,8 @@
 
 .status-select {
   min-width: 110px;
-  min-height: 32px;
-  padding: 6px 8px;
+  min-height: 40px;
+  padding: 7px 10px;
   border: 1px solid var(--line);
   background: #fff;
   color: var(--text);
@@ -278,8 +278,8 @@
 }
 
 .delete-button {
-  min-height: 32px;
-  padding: 6px 10px;
+  min-height: 40px;
+  padding: 7px 12px;
   border: 1px solid var(--line);
   background: #111;
   color: #fff;

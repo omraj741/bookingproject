@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { apiRequest } from '../api'
 
 const statusOptions = ['pending', 'confirmed', 'cancelled']
 
@@ -9,11 +10,7 @@ const BookingTable = () => {
 
     useEffect(() => {
         const loadBookings = () => {
-            fetch('/api/bookings')
-                .then((response) => {
-                    if (!response.ok) throw new Error('Could not load bookings. Make sure the API server is running.')
-                    return response.json()
-                })
+            apiRequest('/api/bookings')
                 .then((data) => {
                     setBookings(data)
                     setError('')
@@ -29,14 +26,11 @@ const BookingTable = () => {
     const updateBookingStatus = async (bookingId, nextStatus) => {
         setBusyId(bookingId)
         try {
-            const response = await fetch(`/api/bookings/${bookingId}`, {
+            await apiRequest(`/api/bookings/${bookingId}`, {
                 method: 'PATCH',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ status: nextStatus }),
             })
-            const result = await response.json().catch(() => ({}))
-
-            if (!response.ok) throw new Error(result.message || 'Could not update booking status.')
 
             window.dispatchEvent(new Event('booking-changed'))
         } catch (fetchError) {
@@ -49,12 +43,9 @@ const BookingTable = () => {
     const deleteBooking = async (bookingId) => {
         setBusyId(bookingId)
         try {
-            const response = await fetch(`/api/bookings/${bookingId}`, {
+            await apiRequest(`/api/bookings/${bookingId}`, {
                 method: 'DELETE',
             })
-            const result = await response.json().catch(() => ({}))
-
-            if (!response.ok) throw new Error(result.message || 'Could not delete booking.')
 
             window.dispatchEvent(new Event('booking-changed'))
         } catch (fetchError) {

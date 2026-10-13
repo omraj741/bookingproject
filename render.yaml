@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: booking-management-api
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm run server
+    envVars:
+      - key: MONGODB_URI
+        sync: false
+      - key: FRONTEND_URL
+        sync: false

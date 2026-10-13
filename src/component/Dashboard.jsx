@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import './Dashboard.css'
 import StatCard from './StatCard'
 import BookingTable from './BookingTable'
+import { apiRequest } from '../api'
 
 const Dashboard = () => {
   const [stats, setStats] = useState(null)
@@ -12,10 +13,7 @@ const Dashboard = () => {
 
     const loadStats = async () => {
       try {
-        const response = await fetch('/api/bookings/stats')
-        const result = await response.json()
-
-        if (!response.ok) throw new Error(result.message || 'Could not load booking statistics.')
+        const result = await apiRequest('/api/bookings/stats')
         if (isMounted) {
           setStats(result)
           setError('')
