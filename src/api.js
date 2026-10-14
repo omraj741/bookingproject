@@ -1,13 +1,11 @@
 const API_URL = (import.meta.env.VITE_API_URL ?? '').trim().replace(/\/+$/, '')
 
 export async function apiRequest(path, options) {
-  if (import.meta.env.PROD && !API_URL) {
-    throw new Error('VITE_API_URL is not configured for this deployment.')
-  }
+  const requestUrl = `${API_URL}${path}`
 
   let response
   try {
-    response = await fetch(`${API_URL}${path}`, options)
+    response = await fetch(requestUrl, options)
   } catch {
     throw new Error('Could not connect to the API server.')
   }
