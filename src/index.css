@@ -1,9 +1,11 @@
 :root {
-  --bg: #f7f7f7;
+  --bg: #f3f1ec;
   --surface: #ffffff;
-  --text: #111111;
-  --line: #1e1e1e;
-  font-family: 'Cascadia Code', Consolas, monospace;
+  --text: #252a35;
+  --line: #d9dce3;
+  --navy: #171e30;
+  --navy-soft: #202940;
+  font-family: 'Segoe UI', sans-serif;
   font-size: 16px;
   line-height: 1.45;
   font-synthesis: none;
@@ -11,18 +13,18 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--text);
-  background: var(--bg);
+  background: radial-gradient(ellipse at 50% 40%, #fffefa 0%, #f6f4ef 65%, #eeece7 100%);
 }
 
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100svh;
-  background: var(--bg);
+  background: radial-gradient(ellipse at 50% 40%, #fffefa 0%, #f6f4ef 65%, #eeece7 100%);
   color: var(--text);
 }
 
 #root {
   min-height: 100svh;
-  background: var(--bg);
+  background: transparent;
 }

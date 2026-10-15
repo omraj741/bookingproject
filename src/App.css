@@ -358,3 +358,201 @@
     gap: 14px 8px;
   }
 }
+
+.app-shell {
+  width: min(976px, calc(100% - 32px));
+  min-height: min(676px, calc(100svh - 40px));
+  margin: 40px auto;
+  overflow: hidden;
+  border: 1px solid rgba(30, 39, 57, 0.12);
+  border-radius: 10px;
+  box-shadow: 0 16px 36px rgba(30, 35, 44, 0.16);
+}
+
+.topbar {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr) auto;
+  min-height: 62px;
+  padding: 0 22px 0 24px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 62px;
+  margin: 0 0 0 -24px;
+  padding-left: 24px;
+  border-right: 1px solid #30394d;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.topbar-title {
+  align-self: center;
+  padding-left: 24px;
+  font-size: 14px;
+}
+
+.topbar-actions {
+  gap: 24px;
+}
+
+.app-body {
+  grid-template-columns: 180px minmax(0, 1fr);
+}
+
+.sidebar {
+  padding: 25px 12px;
+}
+
+.main-content {
+  padding: 24px 24px 36px;
+  background: linear-gradient(135deg, #fff 0%, #fbfbfa 100%);
+}
+
+.page-title {
+  margin-bottom: 18px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.section-title {
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.dashboard-content .booking-table {
+  display: block;
+  overflow-x: auto;
+}
+
+.status-select {
+  min-width: 0;
+  min-height: 24px;
+  padding: 2px 8px;
+  border: 0;
+  border-radius: 999px;
+  background: #e2f5ec;
+  color: #24714d;
+  font-size: 12px;
+  text-transform: capitalize;
+}
+
+.status-select:has(option[value='pending']:checked) {
+  background: #fff0cc;
+  color: #805813;
+}
+
+.status-select:has(option[value='cancelled']:checked) {
+  background: #f9dddd;
+  color: #983e49;
+}
+
+.form-field input,
+.form-field select,
+.status-select {
+  border-radius: 6px;
+}
+
+.form-submit,
+.delete-button {
+  border-radius: 6px;
+  border-color: #cbd0da;
+  background: var(--navy);
+}
+
+@media (max-width: 700px) {
+  .app-shell {
+    width: calc(100% - 20px);
+    min-height: calc(100svh - 20px);
+    margin: 10px auto;
+  }
+
+  .topbar {
+    grid-template-columns: minmax(145px, 180px) minmax(0, 1fr) auto;
+    padding-right: 14px;
+  }
+
+  .topbar-title {
+    padding-left: 14px;
+    font-size: 13px;
+  }
+
+  .app-body {
+    grid-template-columns: 150px minmax(0, 1fr);
+  }
+
+  .main-content {
+    padding: 22px 16px 30px;
+  }
+
+  .dashboard-content .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .app-shell {
+    width: 100%;
+    min-height: 100svh;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .topbar {
+    grid-template-columns: minmax(0, 1fr) auto;
+    min-height: 58px;
+    padding: 0 14px;
+  }
+
+  .brand {
+    min-height: 58px;
+    margin-left: -14px;
+    padding-left: 14px;
+    border-right: 0;
+  }
+
+  .topbar-title {
+    display: none;
+  }
+
+  .topbar-actions {
+    gap: 16px;
+  }
+
+  .app-body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar {
+    padding: 8px 10px;
+    border-right: 0;
+    border-bottom: 1px solid #30394d;
+  }
+
+  .sidebar nav {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 4px;
+  }
+
+  .sidebar a {
+    justify-content: center;
+    padding: 8px 4px;
+    font-size: 13px;
+  }
+
+  .main-content {
+    padding: 22px 14px 30px;
+  }
+
+  .dashboard-content .stats-grid {
+    gap: 10px;
+  }
+
+  .dashboard-content .stat-card {
+    height: 112px;
+  }
+}

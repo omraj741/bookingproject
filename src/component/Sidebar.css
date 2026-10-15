@@ -1,22 +1,23 @@
 .sidebar {
-  background: #000000;
-  border-right: 1px solid #ffffff;
+  background: linear-gradient(155deg, #1c2438, #111827 82%);
+  border-right: 1px solid #30394d;
 }
 
 .sidebar nav {
   display: grid;
-  gap: 8px;
+  gap: 6px;
 }
 
 .sidebar a {
-  color: #ffffff;
+  color: #f5f6fa;
   text-decoration: none;
   padding: 8px 10px;
-  transition: background 0.2s ease, color 0.2s ease;
+  border-radius: 5px;
+  transition: background 0.18s ease, color 0.18s ease;
 }
 
 .sidebar a:hover,
 .sidebar a[aria-current='page'] {
-  background: #ffffff;
-  color: #000000;
+  background: #505cae;
+  color: #ffffff;
 }

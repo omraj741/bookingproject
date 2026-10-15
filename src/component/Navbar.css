@@ -1,17 +1,36 @@
 .topbar {
-  background: #000000;
+  background: linear-gradient(110deg, #171e30, #20283a);
   color: #ffffff;
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 1px solid #30394d;
 }
 
 .brand,
 .icon-button,
-.profile-button {
+.profile-button,
+.topbar-title {
   color: #ffffff;
+}
+
+.brand-mark {
+  color: #737ee0;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.brand-accent {
+  color: #aeb6d2;
+}
+
+.topbar-title {
+  margin: 0;
 }
 
 .icon-button,
 .profile-button {
   background: transparent;
   border: none;
+}
+
+.icon-button {
+  color: #ffbd70;
 }
